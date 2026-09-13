@@ -141,6 +141,20 @@ export function readActionStatus(value: unknown): string | undefined {
     : undefined;
 }
 
+export function hasNamedHetznerResource(
+  value: unknown,
+  key: 'locations' | 'server_types' | 'images',
+): boolean {
+  if (!isRecord(value)) return false;
+  const list =
+    key === 'locations'
+      ? value.locations
+      : key === 'server_types'
+        ? value.server_types
+        : value.images;
+  return Array.isArray(list) && list.length > 0;
+}
+
 export function apiSuccess<T>(value: T): InfraResult<T> {
   return { ok: true, value, diagnostics: [] };
 }

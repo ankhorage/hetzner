@@ -15,6 +15,9 @@ it('reconciles exact labeled Cloud resources through authenticated REST requests
     'ssh-ed25519 AAAA test',
   );
 
+  expect(
+    (await api.validateAsync('secret-token', { provider: 'hetzner', location: 'fsn1' })).ok,
+  ).toBe(true);
   const result = await api.reconcileAsync('secret-token', desired);
 
   expect(result.ok && result.value.resources).toHaveLength(4);
@@ -66,6 +69,8 @@ class FakeCloudFetch {
   private fetchAsync(input: string | URL | Request, init?: RequestInit): Promise<Response> {
     const url = input instanceof Request ? input.url : input.toString();
     this.requests.push({ url, ...(init === undefined ? {} : { init }) });
+    const validation = validationResponse(url);
+    if (validation !== undefined) return Promise.resolve(Response.json(validation));
     const key = new URL(url).pathname.split('/').at(-1);
     if (init?.method === 'POST' && key !== undefined) return this.createAsync(key, init.body);
     const listKey = [...this.resources.keys()].find((candidate) => url.includes(`/${candidate}?`));
@@ -92,6 +97,13 @@ class FakeCloudFetch {
     values.push(value);
     return Promise.resolve(Response.json(createResponse(key, value), { status: 201 }));
   }
+}
+
+function validationResponse(url: string): Record<string, unknown> | undefined {
+  if (url.includes('/locations?')) return { locations: [{ name: 'fsn1' }] };
+  if (url.includes('/server_types?')) return { server_types: [{ name: 'cx23' }] };
+  if (url.includes('/images?')) return { images: [{ name: 'ubuntu-24.04' }] };
+  return undefined;
 }
 
 function listResponse(key: string, values: readonly unknown[]): Record<string, unknown> {

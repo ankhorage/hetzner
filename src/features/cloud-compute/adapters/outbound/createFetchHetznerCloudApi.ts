@@ -15,6 +15,7 @@ import {
   apiSuccess,
   createHetznerResourceBody,
   hasHetznerDrift,
+  hasNamedHetznerResource,
   parseHetznerResource,
   readActionId,
   readActionStatus,
@@ -60,19 +61,33 @@ class Client implements HetznerCloudApi {
     const location = await this.requestAsync(
       token,
       'GET',
-      `/locations/${encodeURIComponent(selection.location)}`,
+      `/locations?name=${encodeURIComponent(selection.location)}`,
       undefined,
       signal,
     );
-    if (!location.ok) return location;
+    if (!location.ok || !hasNamedHetznerResource(location.value, 'locations')) {
+      return apiFailure('hetzner-location-invalid');
+    }
     const serverType = await this.requestAsync(
       token,
       'GET',
-      `/server_types/${encodeURIComponent(selection.serverType ?? 'cx23')}`,
+      `/server_types?name=${encodeURIComponent(selection.serverType ?? 'cx23')}`,
       undefined,
       signal,
     );
-    return serverType.ok ? apiSuccess(null) : serverType;
+    if (!serverType.ok || !hasNamedHetznerResource(serverType.value, 'server_types')) {
+      return apiFailure('hetzner-server-type-invalid');
+    }
+    const image = await this.requestAsync(
+      token,
+      'GET',
+      `/images?name=${encodeURIComponent(selection.image ?? 'ubuntu-24.04')}&type=system`,
+      undefined,
+      signal,
+    );
+    return image.ok && hasNamedHetznerResource(image.value, 'images')
+      ? apiSuccess(null)
+      : apiFailure('hetzner-image-invalid');
   }
 
   async inspectAsync(
