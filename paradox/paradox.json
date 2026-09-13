@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.0.0",
+      "value": "v0.1.0",
       "color": "cb3837"
     },
     {
@@ -81,48 +81,672 @@
       "exports": ["infraAdapterDescriptor"]
     },
     {
+      "path": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["createFetchHetznerCloudApi"]
+    },
+    {
+      "path": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/hetznerCompute.ts"],
+      "exports": ["createNodeHetznerHostKeyProbe"]
+    },
+    {
+      "path": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": [
+        "apiFailure",
+        "apiSuccess",
+        "createHetznerResourceBody",
+        "hasHetznerDrift",
+        "HetznerListKey",
+        "parseHetznerResource",
+        "readActionId",
+        "readActionStatus",
+        "readCreatedHetznerResource",
+        "readHetznerList"
+      ]
+    },
+    {
+      "path": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/hetznerResults.ts",
+        "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["destroyHetznerComputeAsync"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/hetznerResults.ts",
+        "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["ensureHetznerComputeAsync"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/hetznerResults.ts",
+        "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["getHetznerComputeStatusAsync"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/hetznerResults.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["toOwnedResources", "toPublicOutputs", "toStatuses"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["planHetznerComputeAsync"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["projectHetznerCompute"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["resolveHetznerCredentialsAsync"]
+    },
+    {
+      "path": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "src/types/hetznerCompute.ts"
+      ],
+      "exports": ["invalidSelection", "validateHetznerComputeAsync"]
+    },
+    {
       "path": "src/features/cloud-compute/composition/createInfraAdapter.ts",
       "isEntrypoint": false,
-      "dependencies": ["src/constants/infra.ts"],
+      "dependencies": [
+        "src/constants/infra.ts",
+        "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "src/types/hetznerCompute.ts"
+      ],
       "exports": ["createInfraAdapter"]
+    },
+    {
+      "path": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/hetznerCompute.ts"],
+      "exports": ["createHetznerOwner", "getHetznerIdentity", "getHetznerLabels", "HETZNER_LABELS"]
+    },
+    {
+      "path": "src/hetznerCloudApi.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "src/index.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/hetznerCompute.test.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/index.ts", "src/types/hetznerCompute.ts"],
+      "exports": []
     },
     {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": ["createInfraAdapter", "infraAdapterDescriptor"]
+      "exports": [
+        "createFetchHetznerCloudApi",
+        "createInfraAdapter",
+        "createNodeHetznerHostKeyProbe",
+        "HetznerAdapterOptions",
+        "HetznerCloudApi",
+        "HetznerCloudObservation",
+        "HetznerDesiredCompute",
+        "HetznerFetchApiOptions",
+        "HetznerHostKeyProbe",
+        "HetznerProjectIdentity",
+        "HetznerResourceId",
+        "HetznerResourceObservation",
+        "infraAdapterDescriptor"
+      ]
     },
     {
       "path": "src/infraAdapter.test.ts",
       "isEntrypoint": false,
       "dependencies": ["src/index.ts"],
       "exports": []
+    },
+    {
+      "path": "src/types/hetznerCompute.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "HetznerAdapterOptions",
+        "HetznerCloudApi",
+        "HetznerCloudObservation",
+        "HetznerDesiredCompute",
+        "HetznerFetchApiOptions",
+        "HetznerHostKeyProbe",
+        "HetznerProjectIdentity",
+        "HetznerResourceId",
+        "HetznerResourceObservation"
+      ]
     }
   ],
   "exports": [
     {
+      "name": "createFetchHetznerCloudApi",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerCloudApi", "HetznerFetchApiOptions"],
+      "signatures": [
+        {
+          "label": "(options?: HetznerFetchApiOptions) => HetznerCloudApi",
+          "parameters": [
+            {
+              "name": "options",
+              "type": "HetznerFetchApiOptions",
+              "required": false,
+              "description": null
+            }
+          ],
+          "returnType": "HetznerCloudApi",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "createInfraAdapter",
-      "description": "Create the canonical Hetzner Cloud compute adapter entrypoint.\n\nThe foundation exposes the released Contracts boundary and fails lifecycle calls explicitly\nuntil the provider implementation phase supplies its external adapters.",
+      "description": "Create the canonical Hetzner Cloud compute adapter.\n\nThe default composition uses the authenticated Cloud REST API and a shell-free SSH host-key\nprobe. Provider API and SSH credentials remain transient execution inputs.",
       "isReadme": true,
       "examples": [],
       "kind": "function",
       "modulePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
       "sourceLocation": {
         "filePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
-        "line": 13,
+        "line": 21,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
-      "relatedSymbols": [],
+      "relatedSymbols": ["HetznerAdapterOptions"],
       "signatures": [
         {
-          "label": "() => InfraComputeAdapter<\"hetzner\">",
-          "parameters": [],
+          "label": "(options?: HetznerAdapterOptions) => InfraComputeAdapter<\"hetzner\">",
+          "parameters": [
+            {
+              "name": "options",
+              "type": "HetznerAdapterOptions",
+              "required": false,
+              "description": null
+            }
+          ],
           "returnType": "InfraComputeAdapter<\"hetzner\">",
           "returnDescription": null
         }
       ],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createNodeHetznerHostKeyProbe",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerHostKeyProbe"],
+      "signatures": [
+        {
+          "label": "() => HetznerHostKeyProbe",
+          "parameters": [],
+          "returnType": "HetznerHostKeyProbe",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerAdapterOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 76,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerCloudApi", "HetznerHostKeyProbe"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "api",
+          "kind": "property",
+          "type": "HetznerCloudApi | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "hostKeyProbe",
+          "kind": "property",
+          "type": "HetznerHostKeyProbe | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerCloudApi",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 48,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "HetznerCloudObservation",
+        "HetznerDesiredCompute",
+        "HetznerProjectIdentity",
+        "HetznerResourceId"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "destroyAsync",
+          "kind": "method",
+          "type": "(token: string, identity: HetznerProjectIdentity, resourceIds: readonly HetznerResourceId[], signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "inspectAsync",
+          "kind": "method",
+          "type": "(token: string, identity: HetznerProjectIdentity, signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "reconcileAsync",
+          "kind": "method",
+          "type": "(token: string, desired: HetznerDesiredCompute, signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "validateAsync",
+          "kind": "method",
+          "type": "(token: string, selection: InfraComputeSelection<\"hetzner\">, signal?: AbortSignal) => Promise<InfraResult<null>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerCloudObservation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 44,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerResourceObservation"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "resources",
+          "kind": "property",
+          "type": "readonly HetznerResourceObservation[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerDesiredCompute",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 21,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerProjectIdentity"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "firewall",
+          "kind": "property",
+          "type": "HetznerDesiredResource",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "identity",
+          "kind": "property",
+          "type": "HetznerProjectIdentity",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "image",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "location",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "network",
+          "kind": "property",
+          "type": "HetznerDesiredResource",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "server",
+          "kind": "property",
+          "type": "HetznerDesiredResource",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "serverType",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sshKey",
+          "kind": "property",
+          "type": "HetznerDesiredResource",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sshPort",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sshPublicKey",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sshUser",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerFetchApiOptions",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 81,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "endpoint",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "fetch",
+          "kind": "property",
+          "type": "typeof fetch | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "pollIntervalMs",
+          "kind": "property",
+          "type": "number | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerHostKeyProbe",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 72,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "fingerprintAsync",
+          "kind": "method",
+          "type": "(host: string, port: number, signal?: AbortSignal) => Promise<InfraResult<string>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerProjectIdentity",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 10,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "environment",
+          "kind": "property",
+          "type": "\"local\" | \"preview\" | \"production\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "projectId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerResourceId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "HetznerResourceObservation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types/hetznerCompute.ts",
+      "sourceLocation": {
+        "filePath": "src/types/hetznerCompute.ts",
+        "line": 35,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["HetznerResourceId"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "architecture",
+          "kind": "property",
+          "type": "\"amd64\" | \"arm64\" | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "configurationHash",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "externalId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "publicIpv4",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "resourceId",
+          "kind": "property",
+          "type": "HetznerResourceId",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "state",
+          "kind": "property",
+          "type": "\"pending\" | \"ready\" | \"stopped\" | \"degraded\" | \"failed\" | \"unknown\"",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -147,20 +771,443 @@
   "components": [],
   "sourceFunctions": [
     {
-      "name": "createInfraAdapter",
-      "description": "Create the canonical Hetzner Cloud compute adapter entrypoint.\n\nThe foundation exposes the released Contracts boundary and fails lifecycle calls explicitly\nuntil the provider implementation phase supplies its external adapters.",
+      "name": "createFetchHetznerCloudApi",
+      "description": null,
       "sourceLocation": {
-        "filePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "filePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "name": "createNodeHetznerHostKeyProbe",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "fingerprintAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
         "line": 13,
         "column": 1
       }
     },
     {
-      "name": "notImplementedAsync",
-      "description": "Reject lifecycle execution until this package's provider phase is implemented.",
+      "name": "scanAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseFingerprint",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "failure",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "line": 67,
+        "column": 1
+      }
+    },
+    {
+      "name": "createHetznerResourceBody",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseHetznerResource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 63,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasHetznerDrift",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 85,
+        "column": 1
+      }
+    },
+    {
+      "name": "readHetznerList",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "readCreatedHetznerResource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 116,
+        "column": 1
+      }
+    },
+    {
+      "name": "readActionId",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 132,
+        "column": 1
+      }
+    },
+    {
+      "name": "readActionStatus",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 138,
+        "column": 1
+      }
+    },
+    {
+      "name": "apiSuccess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 144,
+        "column": 1
+      }
+    },
+    {
+      "name": "apiFailure",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 148,
+        "column": 1
+      }
+    },
+    {
+      "name": "readServerIpv4",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 155,
+        "column": 1
+      }
+    },
+    {
+      "name": "readServerArchitecture",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 161,
+        "column": 1
+      }
+    },
+    {
+      "name": "mapState",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 170,
+        "column": 1
+      }
+    },
+    {
+      "name": "getNetworkZone",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 177,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "line": 184,
+        "column": 1
+      }
+    },
+    {
+      "name": "destroyHetznerComputeAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "isConfirmed",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "unconfirmed",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "ensureHetznerComputeAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "unavailableServer",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "getHetznerComputeStatusAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "name": "toOwnedResources",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "name": "toStatuses",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "name": "toPublicOutputs",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasPublicAddress",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "line": 52,
+        "column": 1
+      }
+    },
+    {
+      "name": "planHetznerComputeAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "projectHetznerCompute",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "resource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "line": 28,
+        "column": 9
+      }
+    },
+    {
+      "name": "resolveHetznerCredentialsAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "isNonEmpty",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateHetznerComputeAsync",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "invalidSelection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "createInfraAdapter",
+      "description": "Create the canonical Hetzner Cloud compute adapter.\n\nThe default composition uses the authenticated Cloud REST API and a shell-free SSH host-key\nprobe. Provider API and SSH credentials remain transient execution inputs.",
       "sourceLocation": {
         "filePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
-        "line": 25,
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "createHetznerOwner",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "getHetznerLabels",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "getHetznerIdentity",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "line": 54,
+        "column": 1
+      }
+    },
+    {
+      "name": "listResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCloudApi.test.ts",
+        "line": 89,
+        "column": 1
+      }
+    },
+    {
+      "name": "createResponse",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCloudApi.test.ts",
+        "line": 96,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseBody",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCloudApi.test.ts",
+        "line": 103,
+        "column": 1
+      }
+    },
+    {
+      "name": "createContext",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCloudApi.test.ts",
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "createContext",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCompute.test.ts",
+        "line": 115,
+        "column": 1
+      }
+    },
+    {
+      "name": "getSelection",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCompute.test.ts",
+        "line": 148,
+        "column": 1
+      }
+    },
+    {
+      "name": "destroyRequest",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCompute.test.ts",
+        "line": 154,
+        "column": 1
+      }
+    },
+    {
+      "name": "success",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/hetznerCompute.test.ts",
+        "line": 163,
         "column": 1
       }
     }
@@ -168,15 +1215,51 @@
   "sequenceScenarios": [
     {
       "kind": "export",
+      "name": "createFetchHetznerCloudApi",
+      "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+      "symbolName": "createFetchHetznerCloudApi",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "createInfraAdapter",
       "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
       "symbolName": "createInfraAdapter",
-      "description": "Create the canonical Hetzner Cloud compute adapter entrypoint.\n\nThe foundation exposes the released Contracts boundary and fails lifecycle calls explicitly\nuntil the provider implementation phase supplies its external adapters.",
+      "description": "Create the canonical Hetzner Cloud compute adapter.\n\nThe default composition uses the authenticated Cloud REST API and a shell-free SSH host-key\nprobe. Provider API and SSH credentials remain transient execution inputs.",
       "isReadme": true
+    },
+    {
+      "kind": "export",
+      "name": "createNodeHetznerHostKeyProbe",
+      "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+      "symbolName": "createNodeHetznerHostKeyProbe",
+      "description": null,
+      "isReadme": false
     }
   ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/hetznerCloudApi.test.ts",
+        "toPath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromPath": "src/hetznerCloudApi.test.ts",
+        "toPath": "src/index.ts",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromPath": "src/hetznerCompute.test.ts",
+        "toPath": "src/index.ts",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromPath": "src/hetznerCompute.test.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
       {
         "fromPath": "src/index.ts",
         "toPath": "src/constants/infra.ts",
@@ -184,7 +1267,22 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/hetznerCompute.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -198,12 +1296,346 @@
         "sourcePath": "examples/basic-usage/index.ts"
       },
       {
+        "fromPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "toPath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "toPath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "toPath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/hetznerResults.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/hetznerResults.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/application/hetznerResults.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/projectHetznerCompute.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "toPath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts",
+        "sourcePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts"
+      },
+      {
         "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
         "toPath": "src/constants/infra.ts",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+        "toPath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/utils/hetznerOwnership.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "toPath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "toPath": "src/types/hetznerCompute.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromPath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts",
+        "toPath": "src/features/cloud-compute/utils/hetznerOwnership.ts",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "it",
+        "callExpression": "it",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "createFetchHetznerCloudApi",
+        "callExpression": "createFetchHetznerCloudApi",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "projectHetznerCompute",
+        "callExpression": "projectHetznerCompute",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "createContext",
+        "callExpression": "createContext",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "reconcileAsync",
+        "callExpression": "api.reconcileAsync",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "parseBody",
+        "callExpression": "parseBody",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCloudApi.test.ts",
+        "toSymbol": "inspectAsync",
+        "callExpression": "api.inspectAsync",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "fetchAsync",
+        "toSymbol": "createAsync",
+        "callExpression": "this.createAsync",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "fetchAsync",
+        "toSymbol": "listResponse",
+        "callExpression": "listResponse",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "parseBody",
+        "callExpression": "parseBody",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "createResponse",
+        "callExpression": "createResponse",
+        "sourcePath": "src/hetznerCloudApi.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "it",
+        "callExpression": "it",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "createInfraAdapter",
+        "callExpression": "createInfraAdapter",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "createContext",
+        "callExpression": "createContext",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "getSelection",
+        "callExpression": "getSelection",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "src/hetznerCompute.test.ts",
+        "toSymbol": "destroyRequest",
+        "callExpression": "destroyRequest",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "validateAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "fingerprintAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
+      {
+        "fromSymbol": "resolveAsync",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/hetznerCompute.test.ts"
+      },
       {
         "fromSymbol": "src/infraAdapter.test.ts",
         "toSymbol": "describe",
@@ -241,41 +1673,688 @@
         "sourcePath": "examples/basic-usage/index.ts"
       },
       {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "isConfirmed",
+        "callExpression": "isConfirmed",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "unconfirmed",
+        "callExpression": "unconfirmed",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "invalidSelection",
+        "callExpression": "invalidSelection",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "resolveHetznerCredentialsAsync",
+        "callExpression": "resolveHetznerCredentialsAsync",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "getHetznerIdentity",
+        "callExpression": "getHetznerIdentity",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "destroyAsync",
+        "callExpression": "api.destroyAsync",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "toOwnedResources",
+        "callExpression": "toOwnedResources",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "destroyHetznerComputeAsync",
+        "toSymbol": "toPublicOutputs",
+        "callExpression": "toPublicOutputs",
+        "sourcePath": "src/features/cloud-compute/application/destroyHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "resolveHetznerCredentialsAsync",
+        "callExpression": "resolveHetznerCredentialsAsync",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "projectHetznerCompute",
+        "callExpression": "projectHetznerCompute",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "reconcileAsync",
+        "callExpression": "api.reconcileAsync",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "unavailableServer",
+        "callExpression": "unavailableServer",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "fingerprintAsync",
+        "callExpression": "hostKeyProbe.fingerprintAsync",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "toOwnedResources",
+        "callExpression": "toOwnedResources",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "ensureHetznerComputeAsync",
+        "toSymbol": "toPublicOutputs",
+        "callExpression": "toPublicOutputs",
+        "sourcePath": "src/features/cloud-compute/application/ensureHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "getHetznerComputeStatusAsync",
+        "toSymbol": "invalidSelection",
+        "callExpression": "invalidSelection",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromSymbol": "getHetznerComputeStatusAsync",
+        "toSymbol": "resolveHetznerCredentialsAsync",
+        "callExpression": "resolveHetznerCredentialsAsync",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromSymbol": "getHetznerComputeStatusAsync",
+        "toSymbol": "getHetznerIdentity",
+        "callExpression": "getHetznerIdentity",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromSymbol": "getHetznerComputeStatusAsync",
+        "toSymbol": "inspectAsync",
+        "callExpression": "api.inspectAsync",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromSymbol": "getHetznerComputeStatusAsync",
+        "toSymbol": "toStatuses",
+        "callExpression": "toStatuses",
+        "sourcePath": "src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts"
+      },
+      {
+        "fromSymbol": "src/features/cloud-compute/application/hetznerResults.ts",
+        "toSymbol": "createHetznerOwner",
+        "callExpression": "createHetznerOwner",
+        "sourcePath": "src/features/cloud-compute/application/hetznerResults.ts"
+      },
+      {
+        "fromSymbol": "toPublicOutputs",
+        "toSymbol": "createHetznerOwner",
+        "callExpression": "createHetznerOwner",
+        "sourcePath": "src/features/cloud-compute/application/hetznerResults.ts"
+      },
+      {
+        "fromSymbol": "planHetznerComputeAsync",
+        "toSymbol": "resolveHetznerCredentialsAsync",
+        "callExpression": "resolveHetznerCredentialsAsync",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "planHetznerComputeAsync",
+        "toSymbol": "projectHetznerCompute",
+        "callExpression": "projectHetznerCompute",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "planHetznerComputeAsync",
+        "toSymbol": "inspectAsync",
+        "callExpression": "api.inspectAsync",
+        "sourcePath": "src/features/cloud-compute/application/planHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "projectHetznerCompute",
+        "toSymbol": "getHetznerIdentity",
+        "callExpression": "getHetznerIdentity",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "projectHetznerCompute",
+        "toSymbol": "createHash",
+        "callExpression": "createHash",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "resource",
+        "toSymbol": "createHetznerOwner",
+        "callExpression": "createHetznerOwner",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "resource",
+        "toSymbol": "createHash",
+        "callExpression": "createHash",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "projectHetznerCompute",
+        "toSymbol": "resource",
+        "callExpression": "resource",
+        "sourcePath": "src/features/cloud-compute/application/projectHetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "resolveHetznerCredentialsAsync",
+        "toSymbol": "isNonEmpty",
+        "callExpression": "isNonEmpty",
+        "sourcePath": "src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHetznerComputeAsync",
+        "toSymbol": "invalidSelection",
+        "callExpression": "invalidSelection",
+        "sourcePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHetznerComputeAsync",
+        "toSymbol": "resolveHetznerCredentialsAsync",
+        "callExpression": "resolveHetznerCredentialsAsync",
+        "sourcePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHetznerComputeAsync",
+        "toSymbol": "validateAsync",
+        "callExpression": "api.validateAsync",
+        "sourcePath": "src/features/cloud-compute/application/validateHetznerComputeAsync.ts"
+      },
+      {
+        "fromSymbol": "createInfraAdapter",
+        "toSymbol": "createFetchHetznerCloudApi",
+        "callExpression": "createFetchHetznerCloudApi",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromSymbol": "createInfraAdapter",
+        "toSymbol": "createNodeHetznerHostKeyProbe",
+        "callExpression": "createNodeHetznerHostKeyProbe",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
         "fromSymbol": "validateAsync",
-        "toSymbol": "notImplementedAsync",
-        "callExpression": "notImplementedAsync",
+        "toSymbol": "validateHetznerComputeAsync",
+        "callExpression": "validateHetznerComputeAsync",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
       },
       {
         "fromSymbol": "planAsync",
-        "toSymbol": "notImplementedAsync",
-        "callExpression": "notImplementedAsync",
+        "toSymbol": "planHetznerComputeAsync",
+        "callExpression": "planHetznerComputeAsync",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
       },
       {
         "fromSymbol": "ensureAsync",
-        "toSymbol": "notImplementedAsync",
-        "callExpression": "notImplementedAsync",
+        "toSymbol": "ensureHetznerComputeAsync",
+        "callExpression": "ensureHetznerComputeAsync",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
       },
       {
         "fromSymbol": "statusAsync",
-        "toSymbol": "notImplementedAsync",
-        "callExpression": "notImplementedAsync",
+        "toSymbol": "getHetznerComputeStatusAsync",
+        "callExpression": "getHetznerComputeStatusAsync",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
       },
       {
         "fromSymbol": "destroyAsync",
-        "toSymbol": "notImplementedAsync",
-        "callExpression": "notImplementedAsync",
+        "toSymbol": "destroyHetznerComputeAsync",
+        "callExpression": "destroyHetznerComputeAsync",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromSymbol": "getHetznerLabels",
+        "toSymbol": "createHash",
+        "callExpression": "createHash",
+        "sourcePath": "src/features/cloud-compute/utils/hetznerOwnership.ts"
+      },
+      {
+        "fromSymbol": "validateAsync",
+        "toSymbol": "validateAsync",
+        "callExpression": "client.validateAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "inspectAsync",
+        "callExpression": "client.inspectAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "reconcileAsync",
+        "callExpression": "client.reconcileAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "destroyAsync",
+        "callExpression": "client.destroyAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "validateAsync",
+        "toSymbol": "requestAsync",
+        "callExpression": "this.requestAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "validateAsync",
+        "toSymbol": "apiSuccess",
+        "callExpression": "apiSuccess",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "getHetznerLabels",
+        "callExpression": "getHetznerLabels",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "listOwnedAsync",
+        "callExpression": "this.listOwnedAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "apiFailure",
+        "callExpression": "apiFailure",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "readHetznerList",
+        "callExpression": "readHetznerList",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "parseHetznerResource",
+        "callExpression": "parseHetznerResource",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "apiSuccess",
+        "callExpression": "apiSuccess",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+        "toSymbol": "requestAsync",
+        "callExpression": "this.requestAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "inspectAsync",
+        "callExpression": "this.inspectAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "hasHetznerDrift",
+        "callExpression": "hasHetznerDrift",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "destroyAsync",
+        "callExpression": "this.destroyAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "reconcileAsync",
+        "toSymbol": "createAsync",
+        "callExpression": "this.createAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "inspectAsync",
+        "callExpression": "this.inspectAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "requestAsync",
+        "callExpression": "this.requestAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "readActionId",
+        "callExpression": "readActionId",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "destroyAsync",
+        "toSymbol": "waitForActionAsync",
+        "callExpression": "this.waitForActionAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "getHetznerLabels",
+        "callExpression": "getHetznerLabels",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "createHetznerResourceBody",
+        "callExpression": "createHetznerResourceBody",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "apiFailure",
+        "callExpression": "apiFailure",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "requestAsync",
+        "callExpression": "this.requestAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "readActionId",
+        "callExpression": "readActionId",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "waitForActionAsync",
+        "callExpression": "this.waitForActionAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "readCreatedHetznerResource",
+        "callExpression": "readCreatedHetznerResource",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "parseHetznerResource",
+        "callExpression": "parseHetznerResource",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createAsync",
+        "toSymbol": "apiSuccess",
+        "callExpression": "apiSuccess",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "waitForActionAsync",
+        "toSymbol": "apiFailure",
+        "callExpression": "apiFailure",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "waitForActionAsync",
+        "toSymbol": "requestAsync",
+        "callExpression": "this.requestAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "waitForActionAsync",
+        "toSymbol": "readActionStatus",
+        "callExpression": "readActionStatus",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "waitForActionAsync",
+        "toSymbol": "apiSuccess",
+        "callExpression": "apiSuccess",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "requestAsync",
+        "toSymbol": "fetcher",
+        "callExpression": "this.fetcher",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "requestAsync",
+        "toSymbol": "apiFailure",
+        "callExpression": "apiFailure",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "requestAsync",
+        "toSymbol": "apiSuccess",
+        "callExpression": "apiSuccess",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "fingerprintAsync",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "fingerprintAsync",
+        "toSymbol": "scanAsync",
+        "callExpression": "scanAsync",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "fingerprintAsync",
+        "toSymbol": "parseFingerprint",
+        "callExpression": "parseFingerprint",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "toSymbol": "spawn",
+        "callExpression": "spawn",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+        "toSymbol": "reject",
+        "callExpression": "reject",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "parseFingerprint",
+        "toSymbol": "createHash",
+        "callExpression": "createHash",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "createHetznerResourceBody",
+        "toSymbol": "getNetworkZone",
+        "callExpression": "getNetworkZone",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "parseHetznerResource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "parseHetznerResource",
+        "toSymbol": "readServerIpv4",
+        "callExpression": "readServerIpv4",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "parseHetznerResource",
+        "toSymbol": "readServerArchitecture",
+        "callExpression": "readServerArchitecture",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "parseHetznerResource",
+        "toSymbol": "mapState",
+        "callExpression": "mapState",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readHetznerList",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readCreatedHetznerResource",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readActionId",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readActionStatus",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readServerIpv4",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
+      },
+      {
+        "fromSymbol": "readServerArchitecture",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
       }
     ],
     "typeReferences": [
       {
+        "fromSymbol": "createFetchHetznerCloudApi",
+        "toType": "HetznerCloudApi",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createFetchHetznerCloudApi",
+        "toType": "HetznerFetchApiOptions",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts"
+      },
+      {
+        "fromSymbol": "createNodeHetznerHostKeyProbe",
+        "toType": "HetznerHostKeyProbe",
+        "sourcePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts"
+      },
+      {
+        "fromSymbol": "createInfraAdapter",
+        "toType": "HetznerAdapterOptions",
+        "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
         "fromSymbol": "createInfraAdapter",
         "toType": "InfraComputeAdapter",
         "sourcePath": "src/features/cloud-compute/composition/createInfraAdapter.ts"
+      },
+      {
+        "fromSymbol": "HetznerAdapterOptions",
+        "toType": "HetznerCloudApi",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerAdapterOptions",
+        "toType": "HetznerHostKeyProbe",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "AbortSignal",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "HetznerCloudObservation",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "HetznerDesiredCompute",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "HetznerProjectIdentity",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "HetznerResourceId",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "InfraComputeSelection",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudApi",
+        "toType": "InfraResult",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerCloudObservation",
+        "toType": "HetznerResourceObservation",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerDesiredCompute",
+        "toType": "HetznerDesiredResource",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerDesiredCompute",
+        "toType": "HetznerProjectIdentity",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerHostKeyProbe",
+        "toType": "AbortSignal",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerHostKeyProbe",
+        "toType": "InfraResult",
+        "sourcePath": "src/types/hetznerCompute.ts"
+      },
+      {
+        "fromSymbol": "HetznerResourceObservation",
+        "toType": "HetznerResourceId",
+        "sourcePath": "src/types/hetznerCompute.ts"
       }
     ],
     "componentComposition": []
