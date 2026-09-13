@@ -22,6 +22,8 @@ it('plans, reconciles, observes and destroys exact owned Hetzner compute', async
   const selection = getSelection(context);
 
   expect((await adapter.validateAsync(context, selection)).ok).toBe(true);
+  const absent = await adapter.inspectAsync(context, selection);
+  expect(absent.ok && absent.value).toEqual({ resources: [], outputs: [], targets: [] });
   const initial = await adapter.planAsync(context, selection);
   expect(initial.ok && initial.value.every(({ operation }) => operation === 'create')).toBe(true);
   const ensured = await adapter.ensureAsync(context, selection);
@@ -40,6 +42,9 @@ it('plans, reconciles, observes and destroys exact owned Hetzner compute', async
   ]);
   expect(ensured.ok && ensured.value.outputs[0]?.value).toBe('203.0.113.7');
   expect(JSON.stringify(ensured)).not.toContain('private-key-value');
+  const inspected = await adapter.inspectAsync(context, selection);
+  if (!ensured.ok || !inspected.ok) throw new Error('Expected reconciled compute snapshots.');
+  expect(inspected.value).toEqual(ensured.value);
   const converged = await adapter.planAsync(context, selection);
   expect(converged.ok && converged.value.every(({ operation }) => operation === 'noop')).toBe(true);
   expect((await adapter.statusAsync(context)).ok).toBe(true);

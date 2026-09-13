@@ -10,8 +10,8 @@ import { createHetznerComputeSnapshotAsync } from './createHetznerComputeSnapsho
 import { projectHetznerCompute } from './projectHetznerCompute';
 import { resolveHetznerCredentialsAsync } from './resolveHetznerCredentialsAsync';
 
-/** Reconcile owned Cloud resources and return one verified portable SSH target. */
-export async function ensureHetznerComputeAsync(
+/*** Inspect exact owned Hetzner resources without creating, updating or deleting them. */
+export async function inspectHetznerComputeAsync(
   api: HetznerCloudApi,
   hostKeyProbe: HetznerHostKeyProbe,
   context: InfraExecutionContext,
@@ -20,27 +20,17 @@ export async function ensureHetznerComputeAsync(
   const credentials = await resolveHetznerCredentialsAsync(context, selection);
   if (!credentials.ok) return credentials;
   const desired = projectHetznerCompute(context, selection, credentials.value.sshPublicKey);
-  const reconciled = await api.reconcileAsync(credentials.value.token, desired, context.signal);
-  if (!reconciled.ok) return reconciled;
-  const snapshot = await createHetznerComputeSnapshotAsync(
+  const observed = await api.inspectAsync(
+    credentials.value.token,
+    desired.identity,
+    context.signal,
+  );
+  if (!observed.ok) return observed;
+  return createHetznerComputeSnapshotAsync(
     hostKeyProbe,
     desired,
     credentials.value.sshReference,
-    reconciled.value,
+    observed.value,
     context.signal,
   );
-  return snapshot.ok && snapshot.value.targets.length === 0 ? unavailableServer() : snapshot;
-}
-
-function unavailableServer(): InfraResult<never> {
-  return {
-    ok: false,
-    diagnostics: [
-      {
-        severity: 'error',
-        code: 'hetzner-server-unavailable',
-        message: 'The Hetzner server is not ready with a public IPv4 address.',
-      },
-    ],
-  };
 }

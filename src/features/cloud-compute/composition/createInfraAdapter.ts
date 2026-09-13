@@ -7,6 +7,7 @@ import { createNodeHetznerHostKeyProbe } from '../adapters/outbound/createNodeHe
 import { destroyHetznerComputeAsync } from '../application/destroyHetznerComputeAsync';
 import { ensureHetznerComputeAsync } from '../application/ensureHetznerComputeAsync';
 import { getHetznerComputeStatusAsync } from '../application/getHetznerComputeStatusAsync';
+import { inspectHetznerComputeAsync } from '../application/inspectHetznerComputeAsync';
 import { planHetznerComputeAsync } from '../application/planHetznerComputeAsync';
 import { validateHetznerComputeAsync } from '../application/validateHetznerComputeAsync';
 
@@ -26,6 +27,8 @@ export function createInfraAdapter(
   return {
     descriptor: infraAdapterDescriptor,
     validateAsync: (context, selection) => validateHetznerComputeAsync(api, context, selection),
+    inspectAsync: (context, selection) =>
+      inspectHetznerComputeAsync(api, hostKeyProbe, context, selection),
     planAsync: (context, selection) => planHetznerComputeAsync(api, context, selection),
     ensureAsync: (context, selection) =>
       ensureHetznerComputeAsync(api, hostKeyProbe, context, selection),

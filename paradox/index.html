@@ -222,7 +222,17 @@
                 data-target="src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts"
               >
                 src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts
-                <small>14 functions</small>
+                <small>15 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts"
+              >
+                src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts
+                <small>1 function</small>
               </button>
             </li>
             <li>
@@ -263,6 +273,16 @@
               >
                 src/features/cloud-compute/application/hetznerResults.ts
                 <small>4 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/cloud-compute/application/inspectHetznerComputeAsync.ts"
+              >
+                src/features/cloud-compute/application/inspectHetznerComputeAsync.ts
+                <small>1 function</small>
               </button>
             </li>
             <li>
@@ -328,7 +348,7 @@
             <li>
               <button class="nav-button" type="button" data-target="src/hetznerCloudApi.test.ts">
                 src/hetznerCloudApi.test.ts
-                <small>4 functions</small>
+                <small>5 functions</small>
               </button>
             </li>
             <li>
@@ -347,7 +367,7 @@
             <div class="summary">
               <div><strong>13</strong><span class="muted">public exports</span></div>
               <div><strong>0</strong><span class="muted">components</span></div>
-              <div><strong>20</strong><span class="muted">modules</span></div>
+              <div><strong>22</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -395,7 +415,7 @@
             </article>
             <article
               class="item"
-              data-search="src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts src/features/cloud-compute/utils/hetznerOwnership.ts src/types/hetznerCompute.ts apiFailure apiSuccess createHetznerResourceBody hasHetznerDrift HetznerListKey parseHetznerResource readActionId readActionStatus readCreatedHetznerResource readHetznerList"
+              data-search="src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts src/features/cloud-compute/utils/hetznerOwnership.ts src/types/hetznerCompute.ts apiFailure apiSuccess createHetznerResourceBody hasHetznerDrift hasNamedHetznerResource HetznerListKey parseHetznerResource readActionId readActionStatus readCreatedHetznerResource readHetznerList"
             >
               <h3>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts</h3>
               <p class="muted">Referenced module</p>
@@ -407,10 +427,24 @@
               <p>
                 <strong>Exports:</strong> <code>apiFailure</code>, <code>apiSuccess</code>,
                 <code>createHetznerResourceBody</code>, <code>hasHetznerDrift</code>,
-                <code>HetznerListKey</code>, <code>parseHetznerResource</code>,
-                <code>readActionId</code>, <code>readActionStatus</code>,
-                <code>readCreatedHetznerResource</code>, <code>readHetznerList</code>
+                <code>hasNamedHetznerResource</code>, <code>HetznerListKey</code>,
+                <code>parseHetznerResource</code>, <code>readActionId</code>,
+                <code>readActionStatus</code>, <code>readCreatedHetznerResource</code>,
+                <code>readHetznerList</code>
               </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts src/features/cloud-compute/application/hetznerResults.ts src/types/hetznerCompute.ts createHetznerComputeSnapshotAsync"
+            >
+              <h3>src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/cloud-compute/application/hetznerResults.ts</code>,
+                <code>src/types/hetznerCompute.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createHetznerComputeSnapshotAsync</code></p>
             </article>
             <article
               class="item"
@@ -431,14 +465,15 @@
             </article>
             <article
               class="item"
-              data-search="src/features/cloud-compute/application/ensureHetznerComputeAsync.ts src/features/cloud-compute/application/hetznerResults.ts src/features/cloud-compute/application/projectHetznerCompute.ts src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts src/types/hetznerCompute.ts ensureHetznerComputeAsync"
+              data-search="src/features/cloud-compute/application/ensureHetznerComputeAsync.ts src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts src/features/cloud-compute/application/projectHetznerCompute.ts src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts src/types/hetznerCompute.ts ensureHetznerComputeAsync"
             >
               <h3>src/features/cloud-compute/application/ensureHetznerComputeAsync.ts</h3>
               <p class="muted">Referenced module</p>
               <p>
                 <strong>Dependencies:</strong>
-                <code>src/features/cloud-compute/application/hetznerResults.ts</code>,
-                <code>src/features/cloud-compute/application/projectHetznerCompute.ts</code>,
+                <code
+                  >src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts</code
+                >, <code>src/features/cloud-compute/application/projectHetznerCompute.ts</code>,
                 <code>src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts</code
                 >, <code>src/types/hetznerCompute.ts</code>
               </p>
@@ -476,6 +511,22 @@
                 <strong>Exports:</strong> <code>toOwnedResources</code>,
                 <code>toPublicOutputs</code>, <code>toStatuses</code>
               </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/cloud-compute/application/inspectHetznerComputeAsync.ts src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts src/features/cloud-compute/application/projectHetznerCompute.ts src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts src/types/hetznerCompute.ts inspectHetznerComputeAsync"
+            >
+              <h3>src/features/cloud-compute/application/inspectHetznerComputeAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code
+                  >src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts</code
+                >, <code>src/features/cloud-compute/application/projectHetznerCompute.ts</code>,
+                <code>src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts</code
+                >, <code>src/types/hetznerCompute.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>inspectHetznerComputeAsync</code></p>
             </article>
             <article
               class="item"
@@ -531,7 +582,7 @@
             </article>
             <article
               class="item"
-              data-search="src/features/cloud-compute/composition/createInfraAdapter.ts src/constants/infra.ts src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts src/features/cloud-compute/application/destroyHetznerComputeAsync.ts src/features/cloud-compute/application/ensureHetznerComputeAsync.ts src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts src/features/cloud-compute/application/planHetznerComputeAsync.ts src/features/cloud-compute/application/validateHetznerComputeAsync.ts src/types/hetznerCompute.ts createInfraAdapter"
+              data-search="src/features/cloud-compute/composition/createInfraAdapter.ts src/constants/infra.ts src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts src/features/cloud-compute/application/destroyHetznerComputeAsync.ts src/features/cloud-compute/application/ensureHetznerComputeAsync.ts src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts src/features/cloud-compute/application/inspectHetznerComputeAsync.ts src/features/cloud-compute/application/planHetznerComputeAsync.ts src/features/cloud-compute/application/validateHetznerComputeAsync.ts src/types/hetznerCompute.ts createInfraAdapter"
             >
               <h3>src/features/cloud-compute/composition/createInfraAdapter.ts</h3>
               <p class="muted">Referenced module</p>
@@ -546,6 +597,7 @@
                 <code>src/features/cloud-compute/application/destroyHetznerComputeAsync.ts</code>,
                 <code>src/features/cloud-compute/application/ensureHetznerComputeAsync.ts</code>,
                 <code>src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts</code>,
+                <code>src/features/cloud-compute/application/inspectHetznerComputeAsync.ts</code>,
                 <code>src/features/cloud-compute/application/planHetznerComputeAsync.ts</code>,
                 <code>src/features/cloud-compute/application/validateHetznerComputeAsync.ts</code>,
                 <code>src/types/hetznerCompute.ts</code>
@@ -657,7 +709,7 @@
                 <p class="muted">
                   function •
                   <code
-                    >src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:33:1</code
+                    >src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:34:1</code
                   >
                 </p>
 
@@ -734,7 +786,7 @@
                 <h4>createInfraAdapter</h4>
                 <p class="muted">
                   function •
-                  <code>src/features/cloud-compute/composition/createInfraAdapter.ts:21:1</code>
+                  <code>src/features/cloud-compute/composition/createInfraAdapter.ts:22:1</code>
                 </p>
                 <p>
                   Create the canonical Hetzner Cloud compute adapter. The default composition uses
@@ -1309,6 +1361,13 @@
                 module_src_features_cloud_compute_utils_hetznerOwnership_ts
                 module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt;
                 module_src_types_hetznerCompute_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
+                package__ankhorage_hetzner -.-&gt;
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                --&gt; module_src_types_hetznerCompute_ts
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
                 package__ankhorage_hetzner -.-&gt;
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts
@@ -1326,7 +1385,7 @@
                 package__ankhorage_hetzner -.-&gt;
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
-                module_src_features_cloud_compute_application_hetznerResults_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
                 module_src_features_cloud_compute_application_projectHetznerCompute_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
@@ -1352,6 +1411,17 @@
                 module_src_features_cloud_compute_application_hetznerResults_ts --&gt;
                 module_src_features_cloud_compute_utils_hetznerOwnership_ts
                 module_src_features_cloud_compute_application_hetznerResults_ts --&gt;
+                module_src_types_hetznerCompute_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
+                package__ankhorage_hetzner -.-&gt;
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_projectHetznerCompute_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
                 module_src_types_hetznerCompute_ts
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
                 package__ankhorage_hetzner -.-&gt;
@@ -1394,6 +1464,8 @@
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
                 module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts
+                module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
@@ -1445,6 +1517,10 @@ graph TD
   package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt; module_src_features_cloud_compute_utils_hetznerOwnership_ts
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt; module_src_types_hetznerCompute_ts
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
+  package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
   package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
@@ -1454,7 +1530,7 @@ graph TD
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/ensureHetznerComputeAsync.ts&quot;]
   package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts
-  module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+  module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
@@ -1469,6 +1545,12 @@ graph TD
   package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_hetznerResults_ts
   module_src_features_cloud_compute_application_hetznerResults_ts --&gt; module_src_features_cloud_compute_utils_hetznerOwnership_ts
   module_src_features_cloud_compute_application_hetznerResults_ts --&gt; module_src_types_hetznerCompute_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
+  package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
   package__ankhorage_hetzner -.-&gt; module_src_features_cloud_compute_application_planHetznerComputeAsync_ts
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
@@ -1492,6 +1574,7 @@ graph TD
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts
+  module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_planHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_validateHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_types_hetznerCompute_ts
@@ -1528,10 +1611,12 @@ graph TD
                 module_src_features_cloud_compute_adapters_outbound_createFetchHetznerCloudApi_ts[&quot;src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts&quot;]
                 module_src_features_cloud_compute_adapters_outbound_createNodeHetznerHostKeyProbe_ts[&quot;src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts&quot;]
                 module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts[&quot;src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts&quot;]
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/ensureHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts[&quot;src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts&quot;]
                 module_src_features_cloud_compute_application_hetznerResults_ts[&quot;src/features/cloud-compute/application/hetznerResults.ts&quot;]
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_projectHetznerCompute_ts[&quot;src/features/cloud-compute/application/projectHetznerCompute.ts&quot;]
                 module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts[&quot;src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts&quot;]
@@ -1556,6 +1641,10 @@ graph TD
                 module_src_features_cloud_compute_utils_hetznerOwnership_ts
                 module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt;
                 module_src_types_hetznerCompute_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                --&gt; module_src_types_hetznerCompute_ts
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt;
                 module_src_features_cloud_compute_application_hetznerResults_ts
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt;
@@ -1567,7 +1656,7 @@ graph TD
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt;
                 module_src_types_hetznerCompute_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
-                module_src_features_cloud_compute_application_hetznerResults_ts
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
                 module_src_features_cloud_compute_application_projectHetznerCompute_ts
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt;
@@ -1587,6 +1676,14 @@ graph TD
                 module_src_features_cloud_compute_application_hetznerResults_ts --&gt;
                 module_src_features_cloud_compute_utils_hetznerOwnership_ts
                 module_src_features_cloud_compute_application_hetznerResults_ts --&gt;
+                module_src_types_hetznerCompute_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_projectHetznerCompute_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
+                module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt;
                 module_src_types_hetznerCompute_ts
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts --&gt;
                 module_src_features_cloud_compute_application_projectHetznerCompute_ts
@@ -1615,6 +1712,8 @@ graph TD
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
                 module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
+                module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts
                 module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt;
                 module_src_features_cloud_compute_application_validateHetznerComputeAsync_ts
@@ -1637,10 +1736,12 @@ graph LR
   module_src_features_cloud_compute_adapters_outbound_createFetchHetznerCloudApi_ts[&quot;src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts&quot;]
   module_src_features_cloud_compute_adapters_outbound_createNodeHetznerHostKeyProbe_ts[&quot;src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts&quot;]
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts[&quot;src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts&quot;]
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/ensureHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts[&quot;src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts&quot;]
   module_src_features_cloud_compute_application_hetznerResults_ts[&quot;src/features/cloud-compute/application/hetznerResults.ts&quot;]
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_projectHetznerCompute_ts[&quot;src/features/cloud-compute/application/projectHetznerCompute.ts&quot;]
   module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts[&quot;src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts&quot;]
@@ -1659,12 +1760,14 @@ graph LR
   module_src_features_cloud_compute_adapters_outbound_createNodeHetznerHostKeyProbe_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt; module_src_features_cloud_compute_utils_hetznerOwnership_ts
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts --&gt; module_src_types_hetznerCompute_ts
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_validateHetznerComputeAsync_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_utils_hetznerOwnership_ts
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
-  module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_hetznerResults_ts
+  module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
@@ -1675,6 +1778,10 @@ graph LR
   module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_hetznerResults_ts --&gt; module_src_features_cloud_compute_utils_hetznerOwnership_ts
   module_src_features_cloud_compute_application_hetznerResults_ts --&gt; module_src_types_hetznerCompute_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_projectHetznerCompute_ts
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts --&gt; module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts --&gt; module_src_types_hetznerCompute_ts
@@ -1688,6 +1795,7 @@ graph LR
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts
+  module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_planHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_features_cloud_compute_application_validateHetznerComputeAsync_ts
   module_src_features_cloud_compute_composition_createInfraAdapter_ts --&gt; module_src_types_hetznerCompute_ts
@@ -1710,10 +1818,12 @@ graph LR
                 module_src_features_cloud_compute_adapters_outbound_createFetchHetznerCloudApi_ts[&quot;src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts&quot;]
                 module_src_features_cloud_compute_adapters_outbound_createNodeHetznerHostKeyProbe_ts[&quot;src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts&quot;]
                 module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts[&quot;src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts&quot;]
+                module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
                 module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/ensureHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts[&quot;src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts&quot;]
                 module_src_features_cloud_compute_application_hetznerResults_ts[&quot;src/features/cloud-compute/application/hetznerResults.ts&quot;]
+                module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
                 module_src_features_cloud_compute_application_projectHetznerCompute_ts[&quot;src/features/cloud-compute/application/projectHetznerCompute.ts&quot;]
                 module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts[&quot;src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts&quot;]
@@ -1777,10 +1887,12 @@ graph LR
   module_src_features_cloud_compute_adapters_outbound_createFetchHetznerCloudApi_ts[&quot;src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts&quot;]
   module_src_features_cloud_compute_adapters_outbound_createNodeHetznerHostKeyProbe_ts[&quot;src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts&quot;]
   module_src_features_cloud_compute_adapters_outbound_hetznerApiValues_ts[&quot;src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts&quot;]
+  module_src_features_cloud_compute_application_createHetznerComputeSnapshotAsync_ts[&quot;src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts&quot;]
   module_src_features_cloud_compute_application_destroyHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/destroyHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_ensureHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/ensureHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_getHetznerComputeStatusAsync_ts[&quot;src/features/cloud-compute/application/getHetznerComputeStatusAsync.ts&quot;]
   module_src_features_cloud_compute_application_hetznerResults_ts[&quot;src/features/cloud-compute/application/hetznerResults.ts&quot;]
+  module_src_features_cloud_compute_application_inspectHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/inspectHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_planHetznerComputeAsync_ts[&quot;src/features/cloud-compute/application/planHetznerComputeAsync.ts&quot;]
   module_src_features_cloud_compute_application_projectHetznerCompute_ts[&quot;src/features/cloud-compute/application/projectHetznerCompute.ts&quot;]
   module_src_features_cloud_compute_application_resolveHetznerCredentialsAsync_ts[&quot;src/features/cloud-compute/application/resolveHetznerCredentialsAsync.ts&quot;]
@@ -1885,7 +1997,7 @@ sequenceDiagram
               <h3>createFetchHetznerCloudApi</h3>
               <p class="muted">
                 <code
-                  >src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:33:1</code
+                  >src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:34:1</code
                 >
               </p>
               <p class="empty">No description available.</p>
@@ -2042,11 +2154,21 @@ sequenceDiagram
             </article>
             <article
               class="item"
+              data-search="hasNamedHetznerResource src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts "
+            >
+              <h3>hasNamedHetznerResource</h3>
+              <p class="muted">
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:144:1</code>
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
               data-search="apiSuccess src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts "
             >
               <h3>apiSuccess</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:144:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:158:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2056,7 +2178,7 @@ sequenceDiagram
             >
               <h3>apiFailure</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:148:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:162:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2066,7 +2188,7 @@ sequenceDiagram
             >
               <h3>readServerIpv4</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:155:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:169:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2076,7 +2198,7 @@ sequenceDiagram
             >
               <h3>readServerArchitecture</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:161:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:175:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2086,7 +2208,7 @@ sequenceDiagram
             >
               <h3>mapState</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:170:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:184:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2096,7 +2218,7 @@ sequenceDiagram
             >
               <h3>getNetworkZone</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:177:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:191:1</code>
               </p>
               <p class="empty">No description available.</p>
             </article>
@@ -2106,9 +2228,33 @@ sequenceDiagram
             >
               <h3>isRecord</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:184:1</code>
+                <code>src/features/cloud-compute/adapters/outbound/hetznerApiValues.ts:198:1</code>
               </p>
               <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-cloud-compute-application-createhetznercomputesnapshotasync-ts"
+          class="view"
+          data-view="src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts</h2>
+            <article
+              class="item"
+              data-search="createHetznerComputeSnapshotAsync src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts Convert observed owned Cloud resources into a portable read-only compute snapshot."
+            >
+              <h3>createHetznerComputeSnapshotAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/cloud-compute/application/createHetznerComputeSnapshotAsync.ts:15:1</code
+                >
+              </p>
+              <p>
+                Convert observed owned Cloud resources into a portable read-only compute snapshot.
+              </p>
             </article>
           </section>
         </section>
@@ -2173,7 +2319,7 @@ sequenceDiagram
               <h3>ensureHetznerComputeAsync</h3>
               <p class="muted">
                 <code
-                  >src/features/cloud-compute/application/ensureHetznerComputeAsync.ts:15:1</code
+                  >src/features/cloud-compute/application/ensureHetznerComputeAsync.ts:14:1</code
                 >
               </p>
               <p class="empty">No description available.</p>
@@ -2185,7 +2331,7 @@ sequenceDiagram
               <h3>unavailableServer</h3>
               <p class="muted">
                 <code
-                  >src/features/cloud-compute/application/ensureHetznerComputeAsync.ts:65:1</code
+                  >src/features/cloud-compute/application/ensureHetznerComputeAsync.ts:35:1</code
                 >
               </p>
               <p class="empty">No description available.</p>
@@ -2261,6 +2407,30 @@ sequenceDiagram
                 <code>src/features/cloud-compute/application/hetznerResults.ts:52:1</code>
               </p>
               <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-cloud-compute-application-inspecthetznercomputeasync-ts"
+          class="view"
+          data-view="src/features/cloud-compute/application/inspectHetznerComputeAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/cloud-compute/application/inspectHetznerComputeAsync.ts</h2>
+            <article
+              class="item"
+              data-search="inspectHetznerComputeAsync src/features/cloud-compute/application/inspectHetznerComputeAsync.ts Inspect exact owned Hetzner resources without creating, updating or deleting them."
+            >
+              <h3>inspectHetznerComputeAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/cloud-compute/application/inspectHetznerComputeAsync.ts:14:1</code
+                >
+              </p>
+              <p>
+                Inspect exact owned Hetzner resources without creating, updating or deleting them.
+              </p>
             </article>
           </section>
         </section>
@@ -2396,7 +2566,7 @@ sequenceDiagram
             >
               <h3>createInfraAdapter</h3>
               <p class="muted">
-                <code>src/features/cloud-compute/composition/createInfraAdapter.ts:21:1</code>
+                <code>src/features/cloud-compute/composition/createInfraAdapter.ts:22:1</code>
               </p>
               <p>
                 Create the canonical Hetzner Cloud compute adapter. The default composition uses the
@@ -2454,24 +2624,29 @@ sequenceDiagram
         >
           <section class="panel">
             <h2>src/hetznerCloudApi.test.ts</h2>
+            <article class="item" data-search="validationResponse src/hetznerCloudApi.test.ts ">
+              <h3>validationResponse</h3>
+              <p class="muted"><code>src/hetznerCloudApi.test.ts:102:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
             <article class="item" data-search="listResponse src/hetznerCloudApi.test.ts ">
               <h3>listResponse</h3>
-              <p class="muted"><code>src/hetznerCloudApi.test.ts:89:1</code></p>
+              <p class="muted"><code>src/hetznerCloudApi.test.ts:109:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="createResponse src/hetznerCloudApi.test.ts ">
               <h3>createResponse</h3>
-              <p class="muted"><code>src/hetznerCloudApi.test.ts:96:1</code></p>
+              <p class="muted"><code>src/hetznerCloudApi.test.ts:116:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="parseBody src/hetznerCloudApi.test.ts ">
               <h3>parseBody</h3>
-              <p class="muted"><code>src/hetznerCloudApi.test.ts:103:1</code></p>
+              <p class="muted"><code>src/hetznerCloudApi.test.ts:123:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="createContext src/hetznerCloudApi.test.ts ">
               <h3>createContext</h3>
-              <p class="muted"><code>src/hetznerCloudApi.test.ts:108:1</code></p>
+              <p class="muted"><code>src/hetznerCloudApi.test.ts:128:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -2486,22 +2661,22 @@ sequenceDiagram
             <h2>src/hetznerCompute.test.ts</h2>
             <article class="item" data-search="createContext src/hetznerCompute.test.ts ">
               <h3>createContext</h3>
-              <p class="muted"><code>src/hetznerCompute.test.ts:115:1</code></p>
+              <p class="muted"><code>src/hetznerCompute.test.ts:120:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="getSelection src/hetznerCompute.test.ts ">
               <h3>getSelection</h3>
-              <p class="muted"><code>src/hetznerCompute.test.ts:148:1</code></p>
+              <p class="muted"><code>src/hetznerCompute.test.ts:153:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="destroyRequest src/hetznerCompute.test.ts ">
               <h3>destroyRequest</h3>
-              <p class="muted"><code>src/hetznerCompute.test.ts:154:1</code></p>
+              <p class="muted"><code>src/hetznerCompute.test.ts:159:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="success src/hetznerCompute.test.ts ">
               <h3>success</h3>
-              <p class="muted"><code>src/hetznerCompute.test.ts:163:1</code></p>
+              <p class="muted"><code>src/hetznerCompute.test.ts:168:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

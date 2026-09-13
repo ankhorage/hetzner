@@ -4,7 +4,7 @@
 
 Kind: `function`
 Module: `src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts`
-Source: `src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:33:1`
+Source: `src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts:34:1`
 
 ### Signatures
 
@@ -16,7 +16,7 @@ Source: `src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi
 
 Kind: `function`
 Module: `src/features/cloud-compute/composition/createInfraAdapter.ts`
-Source: `src/features/cloud-compute/composition/createInfraAdapter.ts:21:1`
+Source: `src/features/cloud-compute/composition/createInfraAdapter.ts:22:1`
 
 Create the canonical Hetzner Cloud compute adapter.
 
