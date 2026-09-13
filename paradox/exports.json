@@ -1,0 +1,45 @@
+[
+  {
+    "name": "createInfraAdapter",
+    "description": "Create the canonical Hetzner Cloud compute adapter entrypoint.\n\nThe foundation exposes the released Contracts boundary and fails lifecycle calls explicitly\nuntil the provider implementation phase supplies its external adapters.",
+    "isReadme": true,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+    "sourceLocation": {
+      "filePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "() => InfraComputeAdapter<\"hetzner\">",
+        "parameters": [],
+        "returnType": "InfraComputeAdapter<\"hetzner\">",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "infraAdapterDescriptor",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "value",
+    "modulePath": "src/constants/infra.ts",
+    "sourceLocation": {
+      "filePath": "src/constants/infra.ts",
+      "line": 5,
+      "column": 14
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  }
+]
