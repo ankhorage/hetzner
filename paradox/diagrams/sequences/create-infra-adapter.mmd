@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createFetchHetznerCloudApi as createFetchHetznerCloudApi
+  participant participant_createInfraAdapter as createInfraAdapter
+  participant participant_createNodeHetznerHostKeyProbe as createNodeHetznerHostKeyProbe
+  participant_createInfraAdapter->>participant_createFetchHetznerCloudApi: createFetchHetznerCloudApi()
+  participant_createFetchHetznerCloudApi-->>participant_createInfraAdapter: return
+  participant_createInfraAdapter->>participant_createNodeHetznerHostKeyProbe: createNodeHetznerHostKeyProbe()
+  participant_createNodeHetznerHostKeyProbe-->>participant_createInfraAdapter: return

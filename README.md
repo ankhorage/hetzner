@@ -3,7 +3,7 @@
 
 # @ankhorage/hetzner
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v0.1.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Hetzner Cloud compute adapter for provider-neutral Ankhorage infrastructure.
 
@@ -15,6 +15,7 @@ Hetzner Cloud compute adapter for provider-neutral Ankhorage infrastructure.
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [createInfraAdapter sequence](././paradox/diagrams/sequences/create-infra-adapter.mmd)
 
 ## Public API
 
@@ -24,15 +25,16 @@ Hetzner Cloud compute adapter for provider-neutral Ankhorage infrastructure.
 <summary>createInfraAdapter</summary>
 
 ```ts
-createInfraAdapter() => InfraComputeAdapter<"hetzner">
+createInfraAdapter(options?: HetznerAdapterOptions) => InfraComputeAdapter<"hetzner">
 ```
 
-Create the canonical Hetzner Cloud compute adapter entrypoint.
+Create the canonical Hetzner Cloud compute adapter.
 
-The foundation exposes the released Contracts boundary and fails lifecycle calls explicitly
-until the provider implementation phase supplies its external adapters.
+The default composition uses the authenticated Cloud REST API and a shell-free SSH host-key
+probe. Provider API and SSH credentials remain transient execution inputs.
 
 Module: `src/features/cloud-compute/composition/createInfraAdapter.ts`
-Source: `src/features/cloud-compute/composition/createInfraAdapter.ts:13:1`
+Source: `src/features/cloud-compute/composition/createInfraAdapter.ts:21:1`
+Related symbols: `HetznerAdapterOptions`
 
 </details>

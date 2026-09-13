@@ -1,27 +1,476 @@
 [
   {
+    "name": "createFetchHetznerCloudApi",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+    "sourceLocation": {
+      "filePath": "src/features/cloud-compute/adapters/outbound/createFetchHetznerCloudApi.ts",
+      "line": 33,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerCloudApi", "HetznerFetchApiOptions"],
+    "signatures": [
+      {
+        "label": "(options?: HetznerFetchApiOptions) => HetznerCloudApi",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "HetznerFetchApiOptions",
+            "required": false,
+            "description": null
+          }
+        ],
+        "returnType": "HetznerCloudApi",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createInfraAdapter",
-    "description": "Create the canonical Hetzner Cloud compute adapter entrypoint.\n\nThe foundation exposes the released Contracts boundary and fails lifecycle calls explicitly\nuntil the provider implementation phase supplies its external adapters.",
+    "description": "Create the canonical Hetzner Cloud compute adapter.\n\nThe default composition uses the authenticated Cloud REST API and a shell-free SSH host-key\nprobe. Provider API and SSH credentials remain transient execution inputs.",
     "isReadme": true,
     "examples": [],
     "kind": "function",
     "modulePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
     "sourceLocation": {
       "filePath": "src/features/cloud-compute/composition/createInfraAdapter.ts",
-      "line": 13,
+      "line": 21,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": [],
+    "relatedSymbols": ["HetznerAdapterOptions"],
     "signatures": [
       {
-        "label": "() => InfraComputeAdapter<\"hetzner\">",
-        "parameters": [],
+        "label": "(options?: HetznerAdapterOptions) => InfraComputeAdapter<\"hetzner\">",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "HetznerAdapterOptions",
+            "required": false,
+            "description": null
+          }
+        ],
         "returnType": "InfraComputeAdapter<\"hetzner\">",
         "returnDescription": null
       }
     ],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createNodeHetznerHostKeyProbe",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+    "sourceLocation": {
+      "filePath": "src/features/cloud-compute/adapters/outbound/createNodeHetznerHostKeyProbe.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerHostKeyProbe"],
+    "signatures": [
+      {
+        "label": "() => HetznerHostKeyProbe",
+        "parameters": [],
+        "returnType": "HetznerHostKeyProbe",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerAdapterOptions",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 76,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerCloudApi", "HetznerHostKeyProbe"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "api",
+        "kind": "property",
+        "type": "HetznerCloudApi | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "hostKeyProbe",
+        "kind": "property",
+        "type": "HetznerHostKeyProbe | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerCloudApi",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 48,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "HetznerCloudObservation",
+      "HetznerDesiredCompute",
+      "HetznerProjectIdentity",
+      "HetznerResourceId"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "destroyAsync",
+        "kind": "method",
+        "type": "(token: string, identity: HetznerProjectIdentity, resourceIds: readonly HetznerResourceId[], signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "inspectAsync",
+        "kind": "method",
+        "type": "(token: string, identity: HetznerProjectIdentity, signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "reconcileAsync",
+        "kind": "method",
+        "type": "(token: string, desired: HetznerDesiredCompute, signal?: AbortSignal) => Promise<InfraResult<HetznerCloudObservation>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "validateAsync",
+        "kind": "method",
+        "type": "(token: string, selection: InfraComputeSelection<\"hetzner\">, signal?: AbortSignal) => Promise<InfraResult<null>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerCloudObservation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 44,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerResourceObservation"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "resources",
+        "kind": "property",
+        "type": "readonly HetznerResourceObservation[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerDesiredCompute",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerProjectIdentity"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "firewall",
+        "kind": "property",
+        "type": "HetznerDesiredResource",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "identity",
+        "kind": "property",
+        "type": "HetznerProjectIdentity",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "image",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "location",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "network",
+        "kind": "property",
+        "type": "HetznerDesiredResource",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "server",
+        "kind": "property",
+        "type": "HetznerDesiredResource",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "serverType",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sshKey",
+        "kind": "property",
+        "type": "HetznerDesiredResource",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sshPort",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sshPublicKey",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sshUser",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerFetchApiOptions",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 81,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "endpoint",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "fetch",
+        "kind": "property",
+        "type": "typeof fetch | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "pollIntervalMs",
+        "kind": "property",
+        "type": "number | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerHostKeyProbe",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 72,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "fingerprintAsync",
+        "kind": "method",
+        "type": "(host: string, port: number, signal?: AbortSignal) => Promise<InfraResult<string>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerProjectIdentity",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "environment",
+        "kind": "property",
+        "type": "\"local\" | \"preview\" | \"production\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "projectId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerResourceId",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "HetznerResourceObservation",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/types/hetznerCompute.ts",
+    "sourceLocation": {
+      "filePath": "src/types/hetznerCompute.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["HetznerResourceId"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "architecture",
+        "kind": "property",
+        "type": "\"amd64\" | \"arm64\" | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "configurationHash",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "externalId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "publicIpv4",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "resourceId",
+        "kind": "property",
+        "type": "HetznerResourceId",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "state",
+        "kind": "property",
+        "type": "\"pending\" | \"ready\" | \"stopped\" | \"degraded\" | \"failed\" | \"unknown\"",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
