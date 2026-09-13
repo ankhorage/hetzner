@@ -1,5 +1,11 @@
 # @ankhorage/hetzner
 
+## 0.3.0
+
+### Minor Changes
+
+- cf51eb7: Expose read-only owned Hetzner compute snapshots for orchestration.
+
 ## 0.2.0
 
 ### Minor Changes
